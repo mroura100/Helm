@@ -1,0 +1,40 @@
+--- Gestor de paquetes para K8S ---
+A LOS PAQUETES SE LES LLAMA CHARTS
+crear nuestro propio chart
+#Instalar Helm
+wget 'https://get.helm.sh/helm-v3.2.4-linux-amd64.tar.gz'
+tar -zxvf 'helm-v3.2.4-linux-amd64.tar.gz'
+sudo mv ./linux-amd64/helm /usr/local/bin/
+
+# Buscar en el repositorio de Helm
+helm search hub <termino>
+
+# Buscar en los repositorio instalados
+helm search repo <termino>
+
+# Ver parámetros/configuración de un paquete
+helm show values <paquete>
+
+# Instalar un paquete modificando la configuración
+helm install -f config.yaml <nombre> <paquete>
+
+# Lista de aplicaciones instaladas
+helm list
+
+# Desinstalar una aplicación
+helm delete <nombre>
+
+helm create <nombre del chart>
+
+helm package <nombre del chart>
+
+helm repo index .
+
+# Añadir repositorio
+helm repo add <nombre-repo> <url-al-repositorio>
+
+# Ver los parámetros a customizar
+helm show values <nombre-repo>/<nombre-chart>
+
+# Instalar la aplicación
+helm install <nombre-instalación> <nombre-repo>/<nombre-chart>
